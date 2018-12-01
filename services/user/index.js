@@ -6,7 +6,7 @@ Joi.objectId = require('joi-objectid')(Joi)
 const { User } = require('../../models');
 const salt = 10
 
-module.exports = function() {
+function UserServices() {
   generatePassword = (password) => {
     return bcrypt.hashSync(password, salt);
   }
@@ -82,3 +82,5 @@ module.exports = function() {
     return user
   }
 }
+
+module.exports = UserServices

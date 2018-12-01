@@ -1,0 +1,12 @@
+version: '3'
+services:
+  router:
+    build: ./services/router
+    command: flask run --host=0.0.0.0
+    environment:
+      - FLASK_DEBUG=1
+    working_dir: /app
+    volumes:
+      - ./services/router:/app
+    ports:
+      - "5000:5000"
