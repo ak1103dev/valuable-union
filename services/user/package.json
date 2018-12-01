@@ -1,0 +1,20 @@
+{
+  "name": "user",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=production node .",
+    "dev": "NODE_ENV=development nodemon ."
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "joi": "^14.3.0",
+    "joi-objectid": "^2.0.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.3.14"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  }
+}
