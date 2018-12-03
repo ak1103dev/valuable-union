@@ -1,7 +1,15 @@
 version: '3'
 services:
+  rabbitmq:
+    image: rabbitmq:3
+    ports:
+      - "5672:5672"
+      - "25672:25672"
+      - "4369:4369"
   router:
     build: ./services/router
+    depends_on:
+      - rabbitmq
     command: flask run --host=0.0.0.0
     environment:
       - FLASK_DEBUG=1
@@ -10,3 +18,10 @@ services:
       - ./services/router:/app
     ports:
       - "5000:5000"
+  user:
+    build: ./services/user
+    depends_on:
+      - rabbitmq
+    working_dir: /app
+    volumes:
+      - ./services/user:/app
